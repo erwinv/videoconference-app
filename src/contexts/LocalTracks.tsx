@@ -1,3 +1,4 @@
+import { noop } from 'lodash-es'
 import { createContext, useCallback, useContext, useState, type PropsWithChildren } from 'react'
 import { type LocalAudioTrack, type LocalVideoTrack } from 'twilio-video'
 
@@ -32,8 +33,8 @@ function useLocalTracksState() {
 const initialLocalTracksState: ReturnType<typeof useLocalTracksState> = {
   localAudioTrack: undefined,
   localVideoTrack: undefined,
-  setLocalAudioTrack: () => {},
-  setLocalVideoTrack: () => {},
+  setLocalAudioTrack: noop,
+  setLocalVideoTrack: noop,
 }
 
 const LocalTracksContext = createContext(initialLocalTracksState)

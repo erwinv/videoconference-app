@@ -1,3 +1,4 @@
+import { noop } from 'lodash-es'
 import {
   createContext,
   useCallback,
@@ -39,7 +40,7 @@ function useDevicesState() {
   }, [])
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       const {
         microphones,
         cameras,
@@ -74,9 +75,9 @@ const initialDevicesState: ReturnType<typeof useDevicesState> = {
   microphone: '',
   camera: '',
   speakers: '',
-  setMic: () => {},
-  setCamera: () => {},
-  setSpeakers: () => {},
+  setMic: noop,
+  setCamera: noop,
+  setSpeakers: noop,
 }
 
 const DevicesContext = createContext(initialDevicesState)

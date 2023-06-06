@@ -1,3 +1,4 @@
+import { noop } from 'lodash-es'
 import {
   createContext,
   useCallback,
@@ -54,7 +55,7 @@ const initialRoomState: ReturnType<typeof useRoomState> = {
   room: undefined,
   roomStatus: '',
   roomError: undefined,
-  setRoom: () => {},
+  setRoom: noop,
 }
 
 const RoomContext = createContext(initialRoomState)
