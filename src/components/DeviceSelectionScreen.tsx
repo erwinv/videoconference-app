@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Typography } from '@mui/joy'
+import { Box, Button, LinearProgress, Stack, Typography } from '@mui/joy'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LocalVideoPreview from '~/components/LocalVideoPreview'
@@ -35,10 +35,12 @@ export default function DeviceSelectionScreen({
     })()
   }, [microphone, camera, localAudioTrack, setLocalAudioTrack, setLocalVideoTrack])
 
+  if (!user) return <LinearProgress />
+
   return (
     <Stack spacing={2} direction={{ sm: 'row' }} justifyContent="center" alignItems="center">
       <Box sx={{ minWidth: '300px', maxWidth: '500px', flexGrow: 1 }}>
-        <LocalVideoPreview identity={user!.uid} />
+        <LocalVideoPreview identity={user.uid} />
       </Box>
 
       <Stack p={2} alignItems="center">

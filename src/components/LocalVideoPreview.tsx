@@ -69,8 +69,8 @@ export default function LocalVideoPreview({ identity }: { identity: string }) {
           <VideoTrack track={videoTrack} />
         ) : (
           <Box sx={styles.avatarContainer}>
-            <Avatar src={user?.photo} size="lg">
-              {getInitials(user?.name ?? 'Anonymous Anon')}
+            <Avatar src={user?.photoURL ?? undefined} size="lg">
+              {getInitials(user?.displayName ?? 'Anonymous Anon')}
             </Avatar>
           </Box>
         )}

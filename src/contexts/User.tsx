@@ -1,21 +1,19 @@
-// import type firebase from 'firebase/compat/app'
-// import { doc, onSnapshot, type DocumentReference } from 'firebase/firestore'
+import { onAuthStateChanged, signInAnonymously, type User } from 'firebase/auth'
 import { noop } from 'lodash-es'
-import { createContext, useCallback, useContext, useState, type PropsWithChildren } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  type PropsWithChildren,
+} from 'react'
 import { API_URL } from '~/constants'
-// import { getAuth, getDb } from '~/firebase'
-
-interface User {
-  uid: string
-  name: string
-  photo?: string
-  photoURL?: string
-  getIdToken: () => Promise<string>
-}
+import { getAuth } from '~/firebase'
 
 function useUserState() {
   const [{ user }, setUserState] = useState({
-    user: null as User | null,
+    user: getAuth().currentUser,
   })
 
   const setUser = useCallback((user?: User | null) => {
@@ -23,6 +21,19 @@ function useUserState() {
       ...state,
       user: user ?? null,
     }))
+  }, [])
+
+  useEffect(() => {
+    return onAuthStateChanged(getAuth(), (user) => {
+      setUserState((state) => ({
+        ...state,
+        user,
+      }))
+
+      if (!user) {
+        signInAnonymously(getAuth())
+      }
+    })
   }, [])
 
   const getVideoToken = useCallback(
