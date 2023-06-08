@@ -1,7 +1,7 @@
 import { MicOff as MicOffIcon, Mic as MicOnIcon } from '@mui/icons-material'
 import { IconButton } from '@mui/joy'
 import { useCallback } from 'react'
-import { useLocalTracksContext } from '~/contexts/LocalTracks'
+import { useLocalTracksContext } from '~/contexts/hooks/useLocalTracks'
 import useIsTrackEnabled from '~/hooks/useIsTrackEnabled'
 
 interface ToggleAudioButtonProps {

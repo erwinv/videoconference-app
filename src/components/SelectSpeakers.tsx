@@ -1,5 +1,5 @@
 import { FormControl, FormLabel, Option, Select } from '@mui/joy'
-import { useDevicesContext } from '~/contexts/Devices'
+import { useDevicesContext } from '~/contexts/hooks/useDevices'
 import useDeviceInfo from '~/hooks/useDeviceInfo'
 
 export default function SelectSpeakers() {

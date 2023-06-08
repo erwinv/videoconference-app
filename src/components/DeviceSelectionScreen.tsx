@@ -2,9 +2,9 @@ import { Box, Button, LinearProgress, Stack, Typography } from '@mui/joy'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LocalVideoPreview from '~/components/LocalVideoPreview'
-import { useDevicesContext } from '~/contexts/Devices'
-import { useLocalTracksContext } from '~/contexts/LocalTracks'
-import { useUserContext } from '~/contexts/User'
+import { useDevicesContext } from '~/contexts/hooks/useDevices'
+import { useLocalTracksContext } from '~/contexts/hooks/useLocalTracks'
+import { useUserContext } from '~/contexts/hooks/useUser'
 import { acquireLocalAudioVideoTracks } from '~/utils/localtracks'
 
 interface DeviceSelectionScreenProps {

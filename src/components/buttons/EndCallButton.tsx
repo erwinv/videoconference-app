@@ -1,6 +1,6 @@
 import { CallEnd as CallEndIcon } from '@mui/icons-material'
 import { Button } from '@mui/joy'
-import { useRoomContext } from '~/contexts/Room'
+import { useRoomContext } from '~/contexts/hooks/useRoom'
 
 export default function EndCallButton() {
   const { room } = useRoomContext()

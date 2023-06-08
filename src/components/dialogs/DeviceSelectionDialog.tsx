@@ -5,7 +5,7 @@ import SelectCamera from '~/components/SelectCamera'
 import SelectMicrophone from '~/components/SelectMicrophone'
 import SelectSpeakers from '~/components/SelectSpeakers'
 import VideoTrack from '~/components/VideoTrack'
-import { useLocalTracksContext } from '~/contexts/LocalTracks'
+import { useLocalTracksContext } from '~/contexts/hooks/useLocalTracks'
 // import useNoiseCancellation from '~/contexts/hooks/useNoiseCancellation'
 
 interface DeviceSelectionDialogProps {

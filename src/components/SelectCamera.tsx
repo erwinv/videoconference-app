@@ -1,8 +1,8 @@
 import { FormControl, FormLabel, Option, Select } from '@mui/joy'
 import { useEffect, useRef } from 'react'
 import { DEFAULT_VIDEO_CONSTRAINTS } from '~/constants'
-import { useDevicesContext } from '~/contexts/Devices'
-import { useLocalTracksContext } from '~/contexts/LocalTracks'
+import { useDevicesContext } from '~/contexts/hooks/useDevices'
+import { useLocalTracksContext } from '~/contexts/hooks/useLocalTracks'
 import useDeviceInfo from '~/hooks/useDeviceInfo'
 
 export default function SelectCamera() {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useRoomContext } from '~/contexts/Room'
+import { useRoomContext } from '~/contexts/hooks/useRoom'
 
 export type RoomState = 'disconnected' | 'connected' | 'reconnecting'
 

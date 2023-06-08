@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { type RemoteParticipant } from 'twilio-video'
-import { useRoomContext } from '~/contexts/Room'
 import useDominantSpeaker from '~/contexts/hooks/useDominantSpeaker'
+import { useRoomContext } from '~/contexts/hooks/useRoom'
 
 //  If a participant that is not currently on the first page becomes
 //  the dominant speaker, we move them to the first page where the least

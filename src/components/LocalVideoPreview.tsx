@@ -4,8 +4,8 @@ import SettingsMenu from '~/components/SettingsMenu'
 import VideoTrack from '~/components/VideoTrack'
 import ToggleAudioButton from '~/components/buttons/ToggleAudioButton'
 import ToggleVideoButton from '~/components/buttons/ToggleVideoButton'
-import { useLocalTracksContext } from '~/contexts/LocalTracks'
-import { useUserContext } from '~/contexts/User'
+import { useLocalTracksContext } from '~/contexts/hooks/useLocalTracks'
+import { useUserContext } from '~/contexts/hooks/useUser'
 import { getInitials, style } from '~/utils/fns'
 
 const styles = {

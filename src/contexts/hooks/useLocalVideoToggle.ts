@@ -1,7 +1,7 @@
 import { useCallback, useRef } from 'react'
-import { useDevicesContext } from '~/contexts/Devices'
-import { useLocalTracksContext } from '~/contexts/LocalTracks'
-import { useRoomContext } from '~/contexts/Room'
+import { useDevicesContext } from '~/contexts/hooks/useDevices'
+import { useLocalTracksContext } from '~/contexts/hooks/useLocalTracks'
+import { useRoomContext } from '~/contexts/hooks/useRoom'
 import { acquireLocalVideoTrack } from '~/utils/localtracks'
 
 export default function useLocalVideoToggle() {

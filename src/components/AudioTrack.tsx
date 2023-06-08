@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { type AudioTrack as IAudioTrack } from 'twilio-video'
-import { useDevicesContext } from '~/contexts/Devices'
+import { useDevicesContext } from '~/contexts/hooks/useDevices'
 
 declare global {
   interface HTMLMediaElement {

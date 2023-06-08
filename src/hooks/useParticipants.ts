@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { type RemoteParticipant } from 'twilio-video'
-import { useRoomContext } from '~/contexts/Room'
+import { useRoomContext } from '~/contexts/hooks/useRoom'
 
 export default function useParticipants() {
   const { room } = useRoomContext()

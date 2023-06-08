@@ -5,9 +5,9 @@ import { connect as connectVideo, type ConnectOptions } from 'twilio-video'
 import DeviceSelectionScreen from '~/components/DeviceSelectionScreen'
 import VideoAppBar from '~/components/VideoAppBar'
 import VideoRoom from '~/components/VideoRoom'
-import { useLocalTracksContext } from '~/contexts/LocalTracks'
-import { useRoomContext } from '~/contexts/Room'
-import { useUserContext } from '~/contexts/User'
+import { useLocalTracksContext } from '~/contexts/hooks/useLocalTracks'
+import { useRoomContext } from '~/contexts/hooks/useRoom'
+import { useUserContext } from '~/contexts/hooks/useUser'
 import { isNotNil } from '~/utils/fns'
 
 const connectionOptions: ConnectOptions = {
@@ -36,7 +36,7 @@ const connectionOptions: ConnectOptions = {
 
 export default function VideoApp() {
   const [isJoining, setJoining] = useState(false)
-  const { bookingId } = useParams()
+  const { meetingId } = useParams()
   const { getVideoToken } = useUserContext()
   const { localAudioTrack, localVideoTrack } = useLocalTracksContext()
   const { room, setRoom } = useRoomContext()
@@ -49,11 +49,11 @@ export default function VideoApp() {
   }, [localAudioTrack, localVideoTrack])
 
   const joinRoom = useCallback(async () => {
-    if (!bookingId) return
+    if (!meetingId) return
 
     try {
       setJoining(true)
-      const token = await getVideoToken(bookingId)
+      const token = await getVideoToken(meetingId)
       const joinedRoom = await connectVideo(token, {
         ...connectionOptions,
         tracks: [localAudioTrack, localVideoTrack].filter(isNotNil),
@@ -65,7 +65,7 @@ export default function VideoApp() {
     } finally {
       setJoining(false)
     }
-  }, [localAudioTrack, localVideoTrack, bookingId, getVideoToken, setRoom])
+  }, [localAudioTrack, localVideoTrack, meetingId, getVideoToken, setRoom])
 
   return (
     <>

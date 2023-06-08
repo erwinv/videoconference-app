@@ -7,9 +7,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { type LocalParticipant, type RemoteParticipant } from 'twilio-video'
 import { galleryViewBackgroundColor } from '~/components/layouts/GalleryView'
 import Participant from '~/components/participant/Participant'
-import { useRoomContext } from '~/contexts/Room'
 import useDominantSpeaker from '~/contexts/hooks/useDominantSpeaker'
 import useGalleryViewParticipants from '~/contexts/hooks/useGalleryViewParticipants'
+import { useRoomContext } from '~/contexts/hooks/useRoom'
 import { style } from '~/utils/fns'
 
 const styles = {
